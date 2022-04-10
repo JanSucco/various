@@ -1,0 +1,114 @@
+{
+  "schema": "devcap1.schema.json",
+  "manufacturername": "_TZ3000_ksw8qtmt",
+  "modelid": "TS011F",
+  "vendor": "Nous A1Z",
+  "product": "TS011F",
+  "sleeper": false,
+  "status": "Bronze",
+  "path": "/devices/nous_a1z.json",
+  "subdevices": [
+    {
+      "type": "$TYPE_ON_OFF_PLUGIN_UNIT",
+      "restapi": "/lights",
+      "uuid": [
+        "$address.ext",
+        "0x01"
+      ],
+      "items": [
+        {
+          "name": "attr/id"
+        },
+        {
+          "name": "attr/lastannounced"
+        },
+        {
+          "name": "attr/lastseen"
+        },
+        {
+          "name": "attr/manufacturername"
+        },
+        {
+          "name": "attr/modelid"
+        },
+        {
+          "name": "attr/name"
+        },
+        {
+          "name": "attr/swversion"
+        },
+        {
+          "name": "attr/type"
+        },
+        {
+          "name": "attr/uniqueid"
+        },
+        {
+          "name": "state/current",
+          "refresh.interval": 1
+        },
+        {
+          "name": "state/on",
+          "refresh.interval": 1
+        },
+        {
+          "name": "state/power",
+          "refresh.interval": 1,
+          "parse": {
+            "at": "0x050b",
+            "cl": "0x0b04",
+            "ep": 0,
+            "script": "power.js"
+          }
+        },
+        {
+          "name": "state/reachable"
+        },
+        {
+          "name": "state/voltage",
+          "refresh.interval": 1
+        }
+      ]
+    }
+  ],
+  "bindings": [
+    {
+      "bind": "unicast",
+      "src.ep": 1,
+      "cl": "0x0B04",
+      "report": [
+        {
+          "at": "0x0505",
+          "dt": "0x21",
+          "min": 0,
+          "max": 0
+        },
+        {
+          "at": "0x0508",
+          "dt": "0x21",
+          "min": 0,
+          "max": 0
+        },
+        {
+          "at": "0x050B",
+          "dt": "0x29",
+          "min": 0,
+          "max": 0
+        }
+      ]
+    },
+    {
+      "bind": "unicast",
+      "src.ep": 1,
+      "cl": "0x0006",
+      "report": [
+        {
+          "at": "0x0000",
+          "dt": "0x10",
+          "min": 0,
+          "max": 0
+        }
+      ]
+    }
+  ]
+}
