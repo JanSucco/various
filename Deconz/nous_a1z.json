@@ -44,8 +44,14 @@
           "name": "attr/uniqueid"
         },
         {
+          "name": "state/consumption",
+          "refresh.interval": 1,
+          "default": 0
+        },
+        {
           "name": "state/current",
-          "refresh.interval": 1
+          "refresh.interval": 1,
+          "default": 0
         },
         {
           "name": "state/on",
@@ -57,16 +63,17 @@
           "parse": {
             "at": "0x050b",
             "cl": "0x0b04",
-            "ep": 0,
-            "script": "power.js"
-          }
+            "ep": 0
+          },
+          "default": 0
         },
         {
           "name": "state/reachable"
         },
         {
           "name": "state/voltage",
-          "refresh.interval": 1
+          "refresh.interval": 1,
+          "default": 0
         }
       ]
     }
@@ -106,6 +113,19 @@
           "at": "0x0000",
           "dt": "0x10",
           "min": 0,
+          "max": 0
+        }
+      ]
+    },
+    {
+      "bind": "unicast",
+      "src.ep": 1,
+      "cl": "0x0702",
+      "report": [
+        {
+          "at": "0x0000",
+          "dt": "0x25",
+          "min": 1,
           "max": 0
         }
       ]
